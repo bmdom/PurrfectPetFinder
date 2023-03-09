@@ -2,28 +2,31 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.header {
+  /* background-image: url('./imgs/layered-waves-haikei-orange.svg'); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(164, 36, 36);
 }
-
+@media (max-width: 480px) {
+  .header {
+    background-image: url('./imgs/layered-waves-haikei\ \(1\).svg');
+    background-repeat: no-repeat;
+    background-size: contain ;
+  }
+}
+@media (min-width: 481px) {
+  .header {
+    background-image: url('./imgs/layered-waves-haikei\ \(2\).svg');
+    background-repeat: no-repeat;
+    background-size: contain ;
+  }
+}
 .App-link {
   color: #61dafb;
 }
