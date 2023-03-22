@@ -5,6 +5,11 @@ import Dashboard from '../Dashboard/Dashboard';
 import Login from '../Login/Login';
 import Preferences from '../Preferences/Preferences';
 import LandingPage from '../LandingPage/LandingPage';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Cards from '../Cards/Cards';
+import Description from '../Cards/Description';
+import Register from '../Register/Register';
 //import { refreshAuthToken } from '../../actions/auth.js';
 import useToken from './useToken';
 
@@ -13,27 +18,29 @@ function App() {
   const { token, setToken } = useToken();
 
   if(!token) {
-    return <Login setToken={setToken} />
+    return (
+      <div>
+        <Register />
+        <Login setToken={setToken} />
+      </div>
+    );
   }
   return (
     <div className="App">
       <h1>Purrfect Pet Finder</h1>
-      <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<LandingPage />} /> */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
+          <Route path="/description" element={<Description />} />
+
         </Routes>
-      </BrowserRouter>
           
       
       </div>
   );
   
 }
-// const mapStateToProps = state => ({
-//   hasAuthToken: state.auth.authToken !== null,
-//   loggedIn: state.auth.currentUser !== null
-// });
+
 
 export default App;

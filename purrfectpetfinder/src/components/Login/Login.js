@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate, Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Login.css';
+import Dashboard from '../Dashboard/Dashboard'
 
 async function loginUser(credentials) {
     return fetch('http://localhost:8080/login', {
@@ -16,6 +18,7 @@ async function loginUser(credentials) {
 export default function Login( { setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -24,6 +27,7 @@ export default function Login( { setToken }) {
           password
         });
         setToken(token);
+        navigate('/dashboard');
       }
 
   return(
@@ -42,6 +46,9 @@ export default function Login( { setToken }) {
             <button type="submit">Submit</button>
         </div>
         </form>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
     </div>
   )
 }

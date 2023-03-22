@@ -1,0 +1,24 @@
+.footer-icons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 20px;
+}
+.footer-icons .back {
+    padding: 3vw;
+    color: green;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0)
+
+}
+.footer-icons .heart {
+    padding: 3vw;
+    color: red;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0)
+
+}
+.footer-icons .next {
+    padding: 3vw;
+    color: purple;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0)
+}

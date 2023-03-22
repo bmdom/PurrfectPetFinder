@@ -1,0 +1,25 @@
+.card-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.card {
+    position: relative;
+    width: 300px;
+    height: 50vh;
+    padding: 20px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 30px;
+    box-shadow: 0px 20px 60px 0px rgba(0,0,.3)
+}
+.moreInfo {
+    color: orange;
+}
+.swipe {
+    position: absolute;
+}
