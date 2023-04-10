@@ -17,19 +17,18 @@ function App() {
   //const [token, setToken] = useState();
   const { token, setToken } = useToken();
 
-  if(!token) {
-    return (
-      <div>
-        <Register />
-        <Login setToken={setToken} />
-      </div>
-    );
-  }
+  // if(!token) {
+  //   return (
+  //     <div>
+  //       <Register />
+  //       <Login setToken={setToken} />
+  //     </div>
+  //   );
+  // }
   return (
     <div className="App">
-      <h1>Purrfect Pet Finder</h1>
         <Routes>
-          {/* <Route path="/" element={<LandingPage />} /> */}
+          {/* <Route path="/home" element={<LandingPage />} />  */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
           <Route path="/description" element={<Description />} />
