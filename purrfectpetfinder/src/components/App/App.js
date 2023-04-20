@@ -13,33 +13,42 @@ import Register from '../Register/Register';
 //import { refreshAuthToken } from '../../actions/auth.js';
 import useToken from './useToken';
 
-function App() {
-  //const [token, setToken] = useState();
-  const { token, setToken } = useToken();
 
-  // if(!token) {
-  //   return (
-  //     <div>
-  //       <Register />
-  //       <Login setToken={setToken} />
-  //     </div>
-  //   );
-  // }
+
+function App() {
   return (
     <div className="App">
         <Routes>
-          {/* <Route path="/home" element={<LandingPage />} />  */}
+          <Route exact path="/" element={<LandingPage />} /> 
+          <Route path="/login" element={ <Login/>} />
+          <Route path="/register" element={ <Register/>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
           <Route path="/description" element={<Description />} />
 
         </Routes>
           
-      
+      <Bottom />
       </div>
   );
   
 }
+const Bottom = () => {
+  return (
+      <p className="text-center" style={ BottomStyle }>Designed & coded by Bianca Dominguez</p>
+  )
+}
 
+const BottomStyle = {
+  background: "#f5dcbd",
+  fontSize: ".8rem",
+  color: "#fff",
+  position: "absolute",
+  bottom: 0,
+  padding: "1rem",
+  margin: 0,
+  width: "100%",
+  opacity: ".5"
+}
 
 export default App;

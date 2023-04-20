@@ -1,48 +1,38 @@
-import React, { useState } from 'react'
-import './Register.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-async function registerUser(credentials) {
-  return fetch('http://localhost:8080/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json())
- }
-function Register( {setToken} ) {
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+import '../App/App.css'
 
-  const handleSubmit = async e => {
-      e.preventDefault();
-      const token = await registerUser({
-        username,
-        password
-      });
-      setToken(token);
-    }
-  return (
-    <div className='registration-wrapper'>
-        <h1>Please Register Here</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-              <p>Username</p>
-              <input type="text" onChange={e => setUserName(e.target.value)}/>
-          </label>
-          <label>
-              <p>Password</p>
-              <input type="password" onChange={e => setPassword(e.target.value)}/>
-          </label>
-          <div>
-              <button type="submit">Submit</button>
-          </div>
-        </form>
-        
-    </div>
+export default function SignUpPage() {
 
-  )
+    return (
+        <div className="text-center m-5-auto">
+            <h2>Join Purrfect Pet Finder</h2>
+            <h5 style={{color: "#1685b6"}}>Create your personal account</h5>
+            <form action="/preferences">
+                <p>
+                    <label>Username</label><br/>
+                    <input type="text" name="first_name" required />
+                </p>
+                <p>
+                    <label>Email address</label><br/>
+                    <input type="email" name="email" required />
+                </p>
+                <p>
+                    <label>Password</label><br/>
+                    <input type="password" name="password" requiredc />
+                </p>
+                <p>
+                    <input type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
+                </p>
+                <p>
+                    <button id="sub_btn" type="submit">Register</button>
+                </p>
+            </form>
+            <footer>
+                <p><Link to="/">Back to Homepage</Link>.</p>
+            </footer>
+        </div>
+    )
+
 }
-
-export default Register

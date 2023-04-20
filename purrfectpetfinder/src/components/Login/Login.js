@@ -1,57 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate, Routes, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import './Login.css';
-import Dashboard from '../Dashboard/Dashboard'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-async function loginUser(credentials) {
-    return fetch('http://localhost:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-   }
+import '../App/App.css'
 
-export default function Login( { setToken }) {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-    const navigate = useNavigate();
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await loginUser({
-          username,
-          password
-        });
-        setToken(token);
-        navigate('/dashboard');
-      }
-
-  return(
-    <div className='login-wrapper'>
-        <h1>Please Log In</h1>
-        <form onSubmit={handleSubmit}>
-        <label>
-            <p>Username</p>
-            <input type="text" onChange={e => setUserName(e.target.value)}/>
-        </label>
-        <label>
-            <p>Password</p>
-            <input type="password" onChange={e => setPassword(e.target.value)}/>
-        </label>
-        <div>
-            <button type="submit">Submit</button>
+export default function SignInPage() {
+    return (
+        <div className="text-center m-5-auto">
+            
+            <h2>Sign in to find your Purfect Pet!</h2>
+            <form action="/preferences">
+                <p>
+                    <label>Username or email address</label><br/>
+                    <input type="text" name="first_name" required />
+                </p>
+                <p>
+                    <label>Password</label>
+                    <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
+                    <br/>
+                    <input type="password" name="password" required />
+                </p>
+                <p>
+                    <button id="sub_btn" type="submit">Login</button>
+                </p>
+            </form>
+            <footer>
+                <p>First time? <Link to="/register">Create an account</Link>.</p>
+                <p><Link to="/">Back to Homepage</Link>.</p>
+            </footer>
         </div>
-        </form>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-    </div>
-  )
-}
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
+    )
 }

@@ -1,44 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
-import { redirect } from "react-router-dom";
+import { redirect, Link } from "react-router-dom";
 // import LandingPageHero from "./landing-page-hero";
 // import LandingPageAbout from "./landing-page-about";
 //import LandingPageRegister from "./landing-page-register";
 import Login from "../Login/Login";
 import useToken from '../App/useToken';
 //import Footer from "./footer";
-
+import BackgroundImage from '../../assets/main-wave.png'
 export function LandingPage() {
-    const { token, setToken } = useToken();
-
-    if(!token) {
-      return <Login setToken={setToken} />
-    }
   return (
-    <div className="home">
-        <p>Landing page</p>
-        
-        <p>Register Today</p>
-      {/* <LandingPageHero />
-      <div className="lp-main">
-        <LandingPageAbout />
-        <LoginForm />
-        <svg
-          className="lp-main__wave"
-          viewBox="0 0 7740 536"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            className="lp-main__wave--path"
-            d="M1934.5 134H0C291 33.5 713 23.5 962 66.5C1152.14 99.3359 1442.5 155 1934.5 0V134Z"
-            transform="translate(7738) scale(-4 4)"
-          />
-        </svg>
+    <header style={ HeaderStyle }>
+      <h1 className="main-title text-center">Purrfect Pet Finder</h1>
+      <div className="buttons text-center">
+          <Link to="/login">
+              <button className="primary-button">log in</button>
+          </Link>
+          <Link to="/register">
+              <button className="primary-button" id="reg_btn"><span>register </span></button>
+          </Link>
       </div>
-      <LandingPageRegister />
-      <Footer /> */}
-    </div>
+    </header>
   );
+}
+
+const HeaderStyle = {
+  width: "100%",
+  height: "100vh",
+  background: `url(${BackgroundImage})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover"
 }
 
 export default LandingPage;

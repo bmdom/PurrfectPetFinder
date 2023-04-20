@@ -12,6 +12,7 @@
 }
 .header-icons .profile {
     padding: 3vw;
-    color: black;
+    color: #f9d152;
     justify-items: right;
+    background-color: #72c3be;
 }

@@ -1,10 +1,9 @@
 .card-container {
-    height: 80vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-
+    margin-bottom: 30rem;
 }
 .card {
     position: relative;
@@ -23,4 +22,19 @@
 }
 .swipe {
     position:fixed;
+}
+.footer-icons{
+    width: 100%;
+    border: 2px;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 20px;
+}
+.footer-icons .heart {
+    color: red;
+
+}
+.footer-icons .next {
+    color: purple;
 }
